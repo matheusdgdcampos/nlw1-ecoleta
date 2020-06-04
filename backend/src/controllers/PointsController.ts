@@ -53,8 +53,11 @@ export default class PointsController {
 
     const trx = await connection.transaction(); // MONITORA ERROS DE TRANSAÇÕES DO KNEX
 
+    const base_image_url =
+      "https://images.unsplash.com/photo-1556767576-5ec41e3239ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60";
+
     const point = {
-      image: "image-fake",
+      image: base_image_url,
       name,
       email,
       whatsapp,
