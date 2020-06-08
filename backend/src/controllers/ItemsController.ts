@@ -8,7 +8,7 @@ export default class ItemsController {
     const serializedItems = items.map((item) => {
       return {
         id: item.id,
-        tile: item.title,
+        title: item.title,
         image_url: `http://localhost:3333/uploads/${item.image}`,
       };
     });
