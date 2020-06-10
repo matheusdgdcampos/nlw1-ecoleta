@@ -59,6 +59,14 @@ const CreatePoint = () => {
 
   const history = useHistory();
 
+  const toast = Swal.mixin({
+    // definição de alertas tipo toast.
+    toast: true,
+    position: "bottom-left",
+    showConfirmButton: false,
+    timer: 3000,
+  });
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
@@ -171,12 +179,6 @@ const CreatePoint = () => {
 
     try {
       await api.post("points", data);
-      const toast = Swal.mixin({
-        toast: true,
-        position: "bottom-left",
-        showConfirmButton: false,
-        timer: 3000,
-      });
 
       await toast.fire({
         title: "SUCESSO!",
@@ -186,13 +188,6 @@ const CreatePoint = () => {
 
       history.push("/");
     } catch (error) {
-      const toast = Swal.mixin({
-        toast: true,
-        position: "bottom-left",
-        showConfirmButton: false,
-        timer: 3000,
-      });
-
       await toast.fire({
         title: "ERRO!",
         text: "Houve algum erro ao realizar o cadastro, tente novamente",
