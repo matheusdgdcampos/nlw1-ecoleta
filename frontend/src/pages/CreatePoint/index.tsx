@@ -5,6 +5,7 @@ import { Map, TileLayer, Marker } from "react-leaflet";
 import api from "../../services/api";
 import axios from "axios";
 import { LeafletMouseEvent } from "leaflet";
+import Swal from "sweetalert2";
 
 import "./styles.css";
 
@@ -170,10 +171,33 @@ const CreatePoint = () => {
 
     try {
       await api.post("points", data);
-      alert("cadastro realizado com sucesso!");
+      const toast = Swal.mixin({
+        toast: true,
+        position: "bottom-left",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+
+      await toast.fire({
+        title: "SUCESSO!",
+        text: "Cadastro realizado com sucesso.",
+        icon: "success",
+      });
+
       history.push("/");
     } catch (error) {
-      alert(`O seguinte erro aconteceu inesperadamente: ${error}`);
+      const toast = Swal.mixin({
+        toast: true,
+        position: "bottom-left",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+
+      await toast.fire({
+        title: "ERRO!",
+        text: "Houve algum erro ao realizar o cadastro, tente novamente",
+        icon: "error",
+      });
     }
   }
 
