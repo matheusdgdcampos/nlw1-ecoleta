@@ -23,10 +23,6 @@ const CreatePoint = () => {
     image_url: string;
   }
 
-  interface UF {
-    name: string;
-  }
-
   interface IBGEUFResponse {
     sigla: string;
   }
