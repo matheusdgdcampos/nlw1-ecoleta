@@ -11,26 +11,25 @@ import "./styles.css";
 
 import logo from "../../assets/logo.svg";
 
+interface Item {
+  id: number;
+  title: string;
+  image_url: string;
+}
+
+interface IBGEUFResponse {
+  sigla: string;
+}
+
+interface IBGECityResponse {
+  nome: string;
+}
+
 const CreatePoint = () => {
   /**
    * Sempre que setar um estado no typescript
    * declarar o tipo que vai ser manipulada manualmente.
    */
-
-  interface Item {
-    id: number;
-    title: string;
-    image_url: string;
-  }
-
-  interface IBGEUFResponse {
-    sigla: string;
-  }
-
-  interface IBGECityResponse {
-    nome: string;
-  }
-
   const [items, setItems] = useState<Item[]>([]);
   const [uf, setUfs] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);

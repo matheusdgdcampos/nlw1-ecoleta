@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import MapView, { Marker } from "react-native-maps";
 import { SvgUri } from "react-native-svg";
 import api from "../../services/api";
@@ -30,6 +30,11 @@ interface IPoint {
   longitude: number;
 }
 
+interface IParams {
+  uf: string;
+  city: string;
+}
+
 const Points = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [points, setPoints] = useState<IPoint[]>([]);
@@ -38,6 +43,9 @@ const Points = () => {
     0,
     0,
   ]);
+
+  const route = useRoute();
+  const routeParams = route.params as IParams;
 
   const navigation = useNavigation();
 
@@ -67,15 +75,14 @@ const Points = () => {
     (async () => {
       const response = await api.get("points", {
         params: {
-          city: "Rio de Janeiro",
-          uf: "RJ",
-          items: [1, 2],
+          city: routeParams.city,
+          uf: routeParams.uf,
+          items: selectedItems,
         },
       });
-      console.log(response.data);
       setPoints(response.data);
     })();
-  }, []);
+  }, [selectedItems]);
 
   function handleSelectedItem(id: number) {
     const alreadySelected = selectedItems.findIndex((item) => item === id);
