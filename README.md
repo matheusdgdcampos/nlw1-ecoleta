@@ -17,6 +17,11 @@
 <img src="https://img.shields.io/github/last-commit/Teuuz1994/ecoleta-NLW-1?color=%2334cb79"/>
 </p>
 
+<h2>Faça o teste no Insomnia</h2>
+<p align="center">
+<a href="https://insomnia.rest/run/?label=Ecoleta&uri=https%3A%2F%2Fgithub.com%2FTeuuz1994%2Fecoleta-NLW-1%2Fblob%2Fmaster%2F.github%2FInsomnia_2020-07-14.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p>
+
 ## Apresentação do Projeto :sparkles:
 
 <p align="center">
